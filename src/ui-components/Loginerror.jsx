@@ -8,7 +8,7 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function Login(props) {
+export default function Loginerror(props) {
   const { overrides, ...rest } = props;
   return (
     <View
@@ -23,7 +23,7 @@ export default function Login(props) {
       borderRadius="50px"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      {...getOverrideProps(overrides, "Login")}
+      {...getOverrideProps(overrides, "Loginerror")}
       {...rest}
     >
       <View
@@ -44,7 +44,7 @@ export default function Login(props) {
       <View
         width="412px"
         height="44px"
-        {...getOverrideProps(overrides, "Status Bar13298")}
+        {...getOverrideProps(overrides, "Status Bar13516")}
       ></View>
       <Image
         width="296px"
@@ -61,7 +61,7 @@ export default function Login(props) {
         objectFit="cover"
         {...getOverrideProps(
           overrides,
-          "DrawKit Vector Illustration Pack Online Shopping-0413299"
+          "DrawKit Vector Illustration Pack Online Shopping-0413517"
         )}
       ></Image>
       <View
@@ -129,7 +129,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Your Mobile Number"
-        {...getOverrideProps(overrides, "Enter Your Mobile Number13303")}
+        {...getOverrideProps(overrides, "Enter Your Mobile Number13521")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -151,7 +151,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13304")}
+        {...getOverrideProps(overrides, "Login13522")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -173,7 +173,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Number"
-        {...getOverrideProps(overrides, "Enter Number13305")}
+        {...getOverrideProps(overrides, "Enter Number13523")}
       ></Text>
       <View
         width="367px"
@@ -225,12 +225,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Pass word"
-        {...getOverrideProps(overrides, "Pass word13308")}
+        {...getOverrideProps(overrides, "Pass word13526")}
       ></Text>
       <View
         width="375px"
         height="13px"
-        {...getOverrideProps(overrides, "Home Indicator13309")}
+        {...getOverrideProps(overrides, "Home Indicator13527")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -252,12 +252,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13310")}
+        {...getOverrideProps(overrides, "Login13528")}
       ></Text>
       <View
         width="20px"
         height="19px"
-        {...getOverrideProps(overrides, "User13311")}
+        {...getOverrideProps(overrides, "User13529")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -279,12 +279,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Welcome back , Rohit thakur"
-        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13312")}
+        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13530")}
       ></Text>
       <View
         width="412px"
         height="44px"
-        {...getOverrideProps(overrides, "Status Bar13313")}
+        {...getOverrideProps(overrides, "Status Bar13531")}
       ></View>
       <Image
         width="296px"
@@ -301,7 +301,7 @@ export default function Login(props) {
         objectFit="cover"
         {...getOverrideProps(
           overrides,
-          "DrawKit Vector Illustration Pack Online Shopping-0413314"
+          "DrawKit Vector Illustration Pack Online Shopping-0413532"
         )}
       ></Image>
       <View
@@ -369,7 +369,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Your Mobile Number"
-        {...getOverrideProps(overrides, "Enter Your Mobile Number13318")}
+        {...getOverrideProps(overrides, "Enter Your Mobile Number13536")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -391,7 +391,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13319")}
+        {...getOverrideProps(overrides, "Login13537")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -413,7 +413,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Number"
-        {...getOverrideProps(overrides, "Enter Number13320")}
+        {...getOverrideProps(overrides, "Enter Number13538")}
       ></Text>
       <View
         width="367px"
@@ -465,12 +465,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Pass word"
-        {...getOverrideProps(overrides, "Pass word13323")}
+        {...getOverrideProps(overrides, "Pass word13541")}
       ></Text>
       <View
         width="375px"
         height="13px"
-        {...getOverrideProps(overrides, "Home Indicator13324")}
+        {...getOverrideProps(overrides, "Home Indicator13542")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -492,12 +492,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13325")}
+        {...getOverrideProps(overrides, "Login13543")}
       ></Text>
       <View
         width="20px"
         height="19px"
-        {...getOverrideProps(overrides, "User13326")}
+        {...getOverrideProps(overrides, "User13544")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -519,12 +519,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Welcome back , Rohit thakur"
-        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13327")}
+        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13545")}
       ></Text>
       <View
         width="412px"
         height="44px"
-        {...getOverrideProps(overrides, "Status Bar13328")}
+        {...getOverrideProps(overrides, "Status Bar13546")}
       ></View>
       <Image
         width="296px"
@@ -541,7 +541,7 @@ export default function Login(props) {
         objectFit="cover"
         {...getOverrideProps(
           overrides,
-          "DrawKit Vector Illustration Pack Online Shopping-0413329"
+          "DrawKit Vector Illustration Pack Online Shopping-0413547"
         )}
       ></Image>
       <View
@@ -609,7 +609,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Your Mobile Number"
-        {...getOverrideProps(overrides, "Enter Your Mobile Number13333")}
+        {...getOverrideProps(overrides, "Enter Your Mobile Number13551")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -631,7 +631,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13334")}
+        {...getOverrideProps(overrides, "Login13552")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -653,7 +653,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Number"
-        {...getOverrideProps(overrides, "Enter Number13335")}
+        {...getOverrideProps(overrides, "Enter Number13553")}
       ></Text>
       <View
         width="367px"
@@ -705,12 +705,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Pass word"
-        {...getOverrideProps(overrides, "Pass word13338")}
+        {...getOverrideProps(overrides, "Pass word13556")}
       ></Text>
       <View
         width="375px"
         height="13px"
-        {...getOverrideProps(overrides, "Home Indicator13339")}
+        {...getOverrideProps(overrides, "Home Indicator13557")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -732,12 +732,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13340")}
+        {...getOverrideProps(overrides, "Login13558")}
       ></Text>
       <View
         width="20px"
         height="19px"
-        {...getOverrideProps(overrides, "User13341")}
+        {...getOverrideProps(overrides, "User13559")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -759,12 +759,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Welcome back , Rohit thakur"
-        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13342")}
+        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13560")}
       ></Text>
       <View
         width="412px"
         height="44px"
-        {...getOverrideProps(overrides, "Status Bar13343")}
+        {...getOverrideProps(overrides, "Status Bar13561")}
       ></View>
       <Image
         width="296px"
@@ -781,7 +781,7 @@ export default function Login(props) {
         objectFit="cover"
         {...getOverrideProps(
           overrides,
-          "DrawKit Vector Illustration Pack Online Shopping-0413344"
+          "DrawKit Vector Illustration Pack Online Shopping-0413562"
         )}
       ></Image>
       <View
@@ -849,7 +849,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Your Mobile Number"
-        {...getOverrideProps(overrides, "Enter Your Mobile Number13348")}
+        {...getOverrideProps(overrides, "Enter Your Mobile Number13566")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -871,7 +871,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13349")}
+        {...getOverrideProps(overrides, "Login13567")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -893,7 +893,7 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Enter Number"
-        {...getOverrideProps(overrides, "Enter Number13350")}
+        {...getOverrideProps(overrides, "Enter Number13568")}
       ></Text>
       <View
         width="367px"
@@ -945,12 +945,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Pass word"
-        {...getOverrideProps(overrides, "Pass word13353")}
+        {...getOverrideProps(overrides, "Pass word13571")}
       ></Text>
       <View
         width="375px"
         height="13px"
-        {...getOverrideProps(overrides, "Home Indicator13354")}
+        {...getOverrideProps(overrides, "Home Indicator13572")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -972,12 +972,12 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Login"
-        {...getOverrideProps(overrides, "Login13355")}
+        {...getOverrideProps(overrides, "Login13573")}
       ></Text>
       <View
         width="20px"
         height="19px"
-        {...getOverrideProps(overrides, "User13356")}
+        {...getOverrideProps(overrides, "User13574")}
       ></View>
       <Text
         fontFamily="Outfit"
@@ -999,7 +999,29 @@ export default function Login(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Welcome back , Rohit thakur"
-        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13357")}
+        {...getOverrideProps(overrides, "Welcome back , Rohit thakur13575")}
+      ></Text>
+      <Text
+        fontFamily="Poppins"
+        fontSize="12px"
+        fontWeight="300"
+        color="rgba(255,0,0,0.8)"
+        lineHeight="18px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="unset"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="556px"
+        left="26px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Please enter valid number !"
+        {...getOverrideProps(overrides, "Please enter valid number !")}
       ></Text>
     </View>
   );

@@ -10,8 +10,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "name": {
-                    "name": "name",
+                "address": {
+                    "name": "address",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -24,17 +24,10 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "bounty": {
-                    "name": "bounty",
+                "price": {
+                    "name": "price",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "birthday": {
-                    "name": "birthday",
-                    "isArray": false,
-                    "type": "String",
+                    "type": "Float",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -83,6 +76,6 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "codegenVersion": "3.4.3",
-    "version": "d8d50894ae69a96778a61f42b8ef8290"
+    "codegenVersion": "3.4.4",
+    "version": "abb6f204998ef8932ab6c6fbd372dbd2"
 };

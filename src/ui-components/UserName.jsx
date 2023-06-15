@@ -6,15 +6,21 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  PasswordField,
+  TextAreaField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Home } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function HomeUpdateForm(props) {
+export default function UserName(props) {
   const {
-    id: idProp,
-    home: homeModelProp,
+    clearOnSuccess = true,
     onSuccess,
     onError,
     onSubmit,
@@ -25,7 +31,7 @@ export default function HomeUpdateForm(props) {
   } = props;
   const initialValues = {
     address: "",
-    image_url: "",
+    image_url: undefined,
     price: "",
   };
   const [address, setAddress] = React.useState(initialValues.address);
@@ -33,25 +39,11 @@ export default function HomeUpdateForm(props) {
   const [price, setPrice] = React.useState(initialValues.price);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = homeRecord
-      ? { ...initialValues, ...homeRecord }
-      : initialValues;
-    setAddress(cleanValues.address);
-    setImage_url(cleanValues.image_url);
-    setPrice(cleanValues.price);
+    setAddress(initialValues.address);
+    setImage_url(initialValues.image_url);
+    setPrice(initialValues.price);
     setErrors({});
   };
-  const [homeRecord, setHomeRecord] = React.useState(homeModelProp);
-  React.useEffect(() => {
-    const queryData = async () => {
-      const record = idProp
-        ? await DataStore.query(Home, idProp)
-        : homeModelProp;
-      setHomeRecord(record);
-    };
-    queryData();
-  }, [idProp, homeModelProp]);
-  React.useEffect(resetStateValues, [homeRecord]);
   const validations = {
     address: [],
     image_url: [],
@@ -115,13 +107,12 @@ export default function HomeUpdateForm(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(
-            Home.copyOf(homeRecord, (updated) => {
-              Object.assign(updated, modelFields);
-            })
-          );
+          await DataStore.save(new Home(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
+          }
+          if (clearOnSuccess) {
+            resetStateValues();
           }
         } catch (err) {
           if (onError) {
@@ -129,14 +120,13 @@ export default function HomeUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "HomeUpdateForm")}
+      {...getOverrideProps(overrides, "UserName")}
       {...rest}
     >
-      <TextField
+      <TextAreaField
         label="Address"
         isRequired={false}
         isReadOnly={false}
-        value={address}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -157,12 +147,11 @@ export default function HomeUpdateForm(props) {
         errorMessage={errors.address?.errorMessage}
         hasError={errors.address?.hasError}
         {...getOverrideProps(overrides, "address")}
-      ></TextField>
-      <TextField
+      ></TextAreaField>
+      <PasswordField
         label="Image url"
         isRequired={false}
         isReadOnly={false}
-        value={image_url}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -183,7 +172,7 @@ export default function HomeUpdateForm(props) {
         errorMessage={errors.image_url?.errorMessage}
         hasError={errors.image_url?.hasError}
         {...getOverrideProps(overrides, "image_url")}
-      ></TextField>
+      ></PasswordField>
       <TextField
         label="Price"
         isRequired={false}
@@ -219,14 +208,13 @@ export default function HomeUpdateForm(props) {
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Reset"
+          children="Clear"
           type="reset"
           onClick={(event) => {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || homeModelProp)}
-          {...getOverrideProps(overrides, "ResetButton")}
+          {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
           gap="15px"
@@ -236,10 +224,7 @@ export default function HomeUpdateForm(props) {
             children="Submit"
             type="submit"
             variation="primary"
-            isDisabled={
-              !(idProp || homeModelProp) ||
-              Object.values(errors).some((e) => e?.hasError)
-            }
+            isDisabled={Object.values(errors).some((e) => e?.hasError)}
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>
         </Flex>
