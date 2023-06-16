@@ -25,5 +25,3 @@ export { default as Notices } from "./Notices";
 export { default as Logout } from "./Logout";
 export { default as studioTheme } from "./studioTheme";
 export { default as NewForm1 } from "./NewForm1";
-export { default as TodosCreateForm } from "./TodosCreateForm";
-export { default as TodosUpdateForm } from "./TodosUpdateForm";

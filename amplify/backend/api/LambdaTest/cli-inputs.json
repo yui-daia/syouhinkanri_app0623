@@ -1,16 +1,19 @@
 {
   "version": 1,
   "paths": {
-    "/api": {
-      "name": "/api",
-      "lambdaFunction": "todoFunction",
+    "/test/v1": {
+      "name": "/test/v1",
+      "lambdaFunction": "LambdaTest1",
       "permissions": {
-        "setting": "private",
+        "setting": "protected",
         "auth": [
           "create",
           "read",
           "update",
           "delete"
+        ],
+        "guest": [
+          "read"
         ]
       }
     }

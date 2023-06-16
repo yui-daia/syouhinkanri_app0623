@@ -7,7 +7,7 @@ const TodoPage = () => {
   useEffect(() => {
     axios
       .get(
-        "https://kbuj83d2d6.execute-api.ap-northeast-2.amazonaws.com/master/api/api"
+        "https://1jpnxrh1h6.execute-api.ap-northeast-2.amazonaws.com/master/test/v1"
       )
       .then((response) => {
         setTodos(response.data);

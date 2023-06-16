@@ -1,14 +1,9 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "api83b770cd": {
+    "LambdaTest": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
-    },
-    "sakumotodailyreport": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
     }
   },
   "auth": {
@@ -26,6 +21,20 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "LambdaTest": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "LambdaTest1": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "todoFunction": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

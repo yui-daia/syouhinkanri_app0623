@@ -1,6 +1,6 @@
 {
   "api": {
-    "api83b770cd": {
+    "LambdaTest": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,32 +8,11 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "todoFunction"
+          "resourceName": "LambdaTest1"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
-    },
-    "sakumotodailyreport": {
-      "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ],
-          "defaultAuthentication": {
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
-            },
-            "authenticationType": "API_KEY"
-          }
-        }
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "AppSync"
     }
   },
   "auth": {
@@ -84,6 +63,18 @@
     }
   },
   "function": {
+    "LambdaTest": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "LambdaTest1": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "todoFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -91,6 +82,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_LambdaTest1_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaTest1"
+        }
+      ]
+    },
+    "AMPLIFY_function_LambdaTest1_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaTest1"
+        }
+      ]
+    },
+    "AMPLIFY_function_LambdaTest_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_LambdaTest_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaTest"
+        }
+      ]
+    },
     "AMPLIFY_function_todoFunction_deploymentBucketName": {
       "usedBy": [
         {
