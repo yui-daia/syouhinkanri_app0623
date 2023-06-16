@@ -1,22 +1,50 @@
-import { useAuthenticator } from '@aws-amplify/ui-react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Button } from "antd";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { Table } from "antd";
+import { Auth } from "aws-amplify";
 
 const MyPage = () => {
-    const { user, signOut } = useAuthenticator((context) => [context.user]);
-    return (
-        <main>
-            <h1>Hello {user.username}</h1>
-            <li>birthdate:{user.attributes.birthdate}</li>
-            <li>email:{user.attributes.email}</li>
-            <li>family_name:{user.attributes.family_name}</li>
-            <li>given_name:{user.attributes.given_name}</li>
-            <li>name:{user.attributes.name}</li>
-            <li>nickname:{user.attributes.nickname}</li>
-            <li>phone_number:{user.phone_number}</li>
-            <button onClick={signOut}>Sign out</button>
-            <p><Link to="/user_edit">ユーザー情報変更</Link></p>
-        </main>
-    );
-}
+  const { signOut } = useAuthenticator((context) => [context.user]);
+  const [userAttributes, setUserAttributes] = useState([]);
+
+  useEffect(() => {
+    const fetchUserAttributes = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        const attributesArr = Object.entries(user.attributes).map(
+          ([attribute, value], index) => ({ key: index, attribute, value })
+        );
+        console.log(attributesArr);
+        setUserAttributes(attributesArr);
+      } catch (error) {
+        // コンソールログを出力
+        // console.log("error fetching user attributes: ", error);
+      }
+    };
+
+    fetchUserAttributes();
+  }, []);
+
+  const columns = [
+    {
+      title: "Attribute",
+      dataIndex: "attribute",
+      key: "attribute",
+    },
+    {
+      title: "Value",
+      dataIndex: "value",
+      key: "value",
+    },
+  ];
+
+  return (
+    <>
+      <Table columns={columns} dataSource={userAttributes} />
+      <Button onClick={signOut}>ログアウトする</Button>
+    </>
+  );
+};
 
 export default MyPage;

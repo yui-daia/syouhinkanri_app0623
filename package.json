@@ -14,6 +14,7 @@
     "aws-appsync-auth-link": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
     "react-router-dom": "^6.12.1",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
@@ -41,5 +42,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@nuxtjs/eslint-config": "^12.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "prettier": "^2.8.8"
   }
 }

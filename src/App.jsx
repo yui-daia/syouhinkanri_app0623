@@ -1,14 +1,14 @@
-import {Amplify} from 'aws-amplify';
+import { Amplify } from "aws-amplify";
 
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import '@aws-amplify/ui-react/styles.css';
+import "@aws-amplify/ui-react/styles.css";
 import BlankPage from "./BlankPage";
 import LoginPage from "./LoginPage";
 import UserEdit from "./UserEdit";
+import MyPage from "./MyPage";
 
-
-import awsExports from './aws-exports';
+import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
@@ -18,6 +18,7 @@ function App({ signOut, user }) {
         <Route path="/" element={<LoginPage />} />
         <Route path="/blank" element={<BlankPage />} />
         <Route path="/user_edit" element={<UserEdit />} />
+        <Route path="/my_page" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );
