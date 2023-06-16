@@ -1,11 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "amplifyhomes": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
-    },
-    "apidefa6ff8": {
+    "api83b770cd": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
@@ -26,14 +21,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "sakumotodailyreport9870d9f6": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "sakumotodailyreportb51e4cd9": {
+    "todoFunction": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
