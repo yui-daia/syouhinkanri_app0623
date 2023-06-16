@@ -8,7 +8,7 @@ def handler(event, context):
   table = datastore.Table('Todos')
 
   # Get the item.
-  item = table.get(id='1234567890')
+  item = table.get(id='a903a791-932c-473f-b552-340028a5d54e')
 
   # Update the item.
   item['name'] = 'John Doe'
