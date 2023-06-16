@@ -5,11 +5,8 @@ def handler(event, context):
   print(event)
   
   return {
+      'isBase64Encoded': False,
       'statusCode': 200,
-      'headers': {
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-      },
-      'body': json.dumps('Hello from your new Amplify Python lambda!')
+      'headers': {},
+      'body': '{"message": "Hello from your new Amplify Python lambda!"}'
   }
