@@ -3,10 +3,21 @@ import { Table, Button } from "antd";
 import { Link } from "react-router-dom";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Auth } from "aws-amplify";
+import axios from "axios";
 
 const MyPage = () => {
   const { signOut } = useAuthenticator((context) => [context.user]);
   const [userAttributes, setUserAttributes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://1jpnxrh1h6.execute-api.ap-northeast-2.amazonaws.com/master/test/v1"
+      )
+      .then((response) => {
+        setTodos(response.data);
+      });
+  }, []);
 
   useEffect(() => {
     const fetchUserAttributes = async () => {
