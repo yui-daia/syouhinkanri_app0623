@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Home": {
-            "name": "Home",
+        "Todos": {
+            "name": "Todos",
             "fields": {
                 "id": {
                     "name": "id",
@@ -17,22 +17,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "image_url": {
-                    "name": "image_url",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "bounty": {
-                    "name": "bounty",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "birthday": {
-                    "name": "birthday",
+                "email": {
+                    "name": "email",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -56,7 +42,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Homes",
+            "pluralName": "Todos",
             "attributes": [
                 {
                     "type": "model",
@@ -83,6 +69,6 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "codegenVersion": "3.4.3",
-    "version": "d8d50894ae69a96778a61f42b8ef8290"
+    "codegenVersion": "3.4.4",
+    "version": "e4dff8d242b13901cea333200e3f595f"
 };
