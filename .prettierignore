@@ -1,0 +1,7 @@
+*.md
+*.mdx
+package.json
+package-lock.json
+**/node_modules
+src/graphql/generated/*
+src/utils/$path.ts
