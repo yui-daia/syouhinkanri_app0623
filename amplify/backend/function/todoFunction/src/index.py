@@ -7,10 +7,10 @@ def handler(event, context):
   # Get the table.
   table = datastore.Table('Todos')
 
-  # Get the item.
+  # DataStoreからデータを取得
   item = table.get(id='a903a791-932c-473f-b552-340028a5d54e')
 
-  # Update the item.
+  # DataStoreのデータを更新
   item['name'] = 'John Doe'
   item['email'] = 'johndoe@example.com'
   item.save()
