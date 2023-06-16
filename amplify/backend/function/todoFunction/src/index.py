@@ -1,19 +1,15 @@
-import boto3
+import json
 
 def handler(event, context):
-  # Get the datastore client.
-  datastore = boto3.resource('amplify', region_name=os.environ['ap-northeast-2'])
-
-  # Get the table.
-  table = datastore.Table('Todos')
-
-  # DataStoreからデータを取得
-  item = table.get(id='a903a791-932c-473f-b552-340028a5d54e')
-
-  # DataStoreのデータを更新
-  item['name'] = 'John Doe'
-  item['email'] = 'johndoe@example.com'
-  item.save()
-
-  # Return the item.
-  return item
+  print('received event:')
+  print(event)
+  
+  return {
+      'statusCode': 200,
+      'headers': {
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+      },
+      'body': json.dumps('Hello from your new Amplify Python lambda!')
+  }
