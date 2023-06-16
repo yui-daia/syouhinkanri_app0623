@@ -16,7 +16,6 @@ Amplify.configure({
 ReactDOM.render(
   <React.StrictMode>
     <AmplifyProvider>
-      {/* @ts-ignore */}
       <App />
     </AmplifyProvider>
   </React.StrictMode>,
