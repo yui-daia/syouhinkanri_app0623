@@ -1,27 +1,6 @@
 {
   "api": {
-    "amplifyhomes": {
-      "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ],
-          "defaultAuthentication": {
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
-            },
-            "authenticationType": "API_KEY"
-          }
-        }
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "AppSync"
-    },
-    "apidefa6ff8": {
+    "api83b770cd": {
       "dependsOn": [
         {
           "attributes": [
@@ -29,15 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "sakumotodailyreportb51e4cd9"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "sakumotodailyreport9870d9f6"
+          "resourceName": "todoFunction"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -92,47 +63,26 @@
     }
   },
   "function": {
-    "sakumotodailyreport9870d9f6": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "sakumotodailyreportb51e4cd9": {
+    "todoFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_sakumotodailyreport9870d9f6_deploymentBucketName": {
+    "AMPLIFY_function_todoFunction_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "sakumotodailyreport9870d9f6"
+          "resourceName": "todoFunction"
         }
       ]
     },
-    "AMPLIFY_function_sakumotodailyreport9870d9f6_s3Key": {
+    "AMPLIFY_function_todoFunction_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "sakumotodailyreport9870d9f6"
-        }
-      ]
-    },
-    "AMPLIFY_function_sakumotodailyreportb51e4cd9_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "sakumotodailyreportb51e4cd9"
-        }
-      ]
-    },
-    "AMPLIFY_function_sakumotodailyreportb51e4cd9_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "sakumotodailyreportb51e4cd9"
+          "resourceName": "todoFunction"
         }
       ]
     }

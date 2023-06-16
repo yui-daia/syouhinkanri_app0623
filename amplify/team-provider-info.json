@@ -23,18 +23,13 @@
       "function": {
         "sakumotodailyreportc9355e11": {},
         "sakumotodailyreportcd1132b6": {},
-        "sakumotodailyreportb51e4cd9": {
+        "todoFunction": {
           "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
-          "s3Key": "amplify-builds/sakumotodailyreportb51e4cd9-494a50635a65756f3377-build.zip"
-        },
-        "sakumotodailyreport9870d9f6": {
-          "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
-          "s3Key": "amplify-builds/sakumotodailyreport9870d9f6-4849505938773365704e-build.zip"
+          "s3Key": "amplify-builds/todoFunction-34623235666835546d49-build.zip"
         }
       },
       "api": {
-        "amplifyhomes": {},
-        "apidefa6ff8": {}
+        "api83b770cd": {}
       }
     }
   }

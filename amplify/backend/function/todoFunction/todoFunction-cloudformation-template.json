@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "sakumotodailyreport9870d9f6",
+            "todoFunction",
             {
               "Fn::Join": [
                 "",
                 [
-                  "sakumotodailyreport9870d9f6",
+                  "todoFunction",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "sakumotodailyreportLambdaRole8727838a",
+            "sakumotodailyreportLambdaRoleef7884b3",
             {
               "Fn::Join": [
                 "",
                 [
-                  "sakumotodailyreportLambdaRole8727838a",
+                  "sakumotodailyreportLambdaRoleef7884b3",
                   "-",
                   {
                     "Ref": "env"
