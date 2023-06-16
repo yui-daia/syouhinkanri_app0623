@@ -79,9 +79,12 @@ const UserEditPage = () => {
       <p>
         <button onClick={signOut}>ログアウトする</button>
       </p>
-
-      <Link to="/blank">ブランクページへ</Link>
-      <Link to="/my_page">マイページへ</Link>
+      <div>
+        <Link to="/blank">ブランクページへ</Link>
+      </div>
+      <div>
+        <Link to="/my_page">マイページへ</Link>
+      </div>
     </main>
   );
 };

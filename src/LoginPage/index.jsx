@@ -10,7 +10,6 @@ const LoginPage = () => {
         "given_name",
         "name",
         "nickname",
-        "phone_number",
       ]}
     >
       {({ signOut, user }) => (
