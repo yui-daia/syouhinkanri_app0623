@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "paths": {
+    "/api/{user}": {
+      "name": "/api/{user}",
+      "lambdaFunction": "sakumotodailyreportb51e4cd9",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/api/todo": {
+      "name": "/api/todo",
+      "lambdaFunction": "sakumotodailyreport9870d9f6",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}
