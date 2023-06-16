@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-amplifyhomes-master-124532-unauthRole",
       "StackName": "amplify-amplifyhomes-master-124532",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:711556954185:stack/amplify-amplifyhomes-master-124532/33da6a60-fbc3-11ed-b21e-06ff2b3480e2",
-      "AmplifyAppId": "d2cuiqmj5lvmnb"
+      "AmplifyAppId": "d2cuiqmj5lvmnb",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplifyhomes-master-124532-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -20,10 +21,20 @@
         "s3amplifyhomesstorage855d51b1": {}
       },
       "function": {
-        "sakumotodailyreportc9355e11": {}
+        "sakumotodailyreportc9355e11": {},
+        "sakumotodailyreportcd1132b6": {},
+        "sakumotodailyreportb51e4cd9": {
+          "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
+          "s3Key": "amplify-builds/sakumotodailyreportb51e4cd9-494a50635a65756f3377-build.zip"
+        },
+        "sakumotodailyreport9870d9f6": {
+          "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
+          "s3Key": "amplify-builds/sakumotodailyreport9870d9f6-4849505938773365704e-build.zip"
+        }
       },
       "api": {
-        "amplifyhomes": {}
+        "amplifyhomes": {},
+        "apidefa6ff8": {}
       }
     }
   }

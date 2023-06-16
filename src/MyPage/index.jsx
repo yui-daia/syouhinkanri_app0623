@@ -48,6 +48,9 @@ const MyPage = () => {
       <div>
         <Link to="/my_page">マイページへ</Link>
       </div>
+      <div>
+        <Link to="/todo_page">TODOページへ</Link>
+      </div>
       <Button onClick={signOut}>ログアウトする</Button>
     </>
   );
