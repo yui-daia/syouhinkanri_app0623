@@ -2,43 +2,45 @@ import json
 import boto3
 
 def handler(event, context):
-    # Get the request body.
-    body = json.loads(event['body'])
-
     # Get the DynamoDB client.
     dynamodb = boto3.resource('dynamodb')
 
     # Get the Todo table.
     todo_table = dynamodb.Table('sakumoto_todo')
 
-    # If the request is to create a new Todo, do the following.
-    if body['action'] == 'create':
-        # Create the Todo.
-        todo_table.put_item(Item={
-            'id': body['id'],
-            'title': body['title'],
-            'description': body['description']
-        })
+    # If the request is a POST request, do the following.
+    if event['httpMethod'] == 'POST':
+        # Get the request body.
+        body = json.loads(event['body'])
 
-    # If the request is to update an existing Todo, do the following.
-    elif body['action'] == 'update':
-        # Update the Todo.
-        todo_table.update_item(Key={
-            'id': body['id']
-        }, UpdateExpression='SET title = :title, description = :description', ExpressionAttributeValues={
-            ':title': body['title'],
-            ':description': body['description']
-        })
+        # If the request is to create a new Todo, do the following.
+        if body['action'] == 'create':
+            # Create the Todo.
+            todo_table.put_item(Item={
+                'id': body['id'],
+                'title': body['title'],
+                'description': body['description']
+            })
 
-    # If the request is to delete an existing Todo, do the following.
-    elif body['action'] == 'delete':
-        # Delete the Todo.
-        todo_table.delete_item(Key={
-            'id': body['id']
-        })
+        # If the request is to update an existing Todo, do the following.
+        elif body['action'] == 'update':
+            # Update the Todo.
+            todo_table.update_item(Key={
+                'id': body['id']
+            }, UpdateExpression='SET title = :title, description = :description', ExpressionAttributeValues={
+                ':title': body['title'],
+                ':description': body['description']
+            })
+
+        # If the request is to delete an existing Todo, do the following.
+        elif body['action'] == 'delete':
+            # Delete the Todo.
+            todo_table.delete_item(Key={
+                'id': body['id']
+            })
 
     # If the request is a GET request with an {id} parameter, do the following.
-    elif 'id' in event['queryStringParameters']:
+    elif event['httpMethod'] == 'GET' and event.get('queryStringParameters') and 'id' in event['queryStringParameters']:
         # Get the Todo with the specified ID.
         todo = todo_table.get_item(Key={
             'id': event['queryStringParameters']['id']
@@ -56,7 +58,7 @@ def handler(event, context):
         }
 
     # If the request is a GET request without an {id} parameter, do the following.
-    else:
+    elif event['httpMethod'] == 'GET':
         # Get all Todos.
         todos = todo_table.scan()
 

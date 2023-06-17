@@ -31,7 +31,7 @@ const TodoPage = () => {
     const fetchData = async () => {
       if (!idToken || idToken == "") return;
       console.log("id", idToken);
-      const headerAuth = { headers: { Authorization: `Bearer ${idToken}` } };
+      const headerAuth = { headers: { Authorization: idToken } };
       const response = await axios.get(API_URL, headerAuth);
       setTodos(response.data);
     };
