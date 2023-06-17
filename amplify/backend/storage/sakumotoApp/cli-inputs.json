@@ -1,0 +1,14 @@
+{
+  "resourceName": "sakumotoApp",
+  "tableName": "sakumotoApp",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "number"
+  },
+  "sortKey": {
+    "fieldName": "title",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

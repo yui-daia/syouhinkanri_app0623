@@ -47,6 +47,16 @@ export type AmplifyDependentResourcesAttributes = {
     "s3amplifyhomesstorage855d51b1": {
       "BucketName": "string",
       "Region": "string"
+    },
+    "sakumotoApp": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "SortKeyName": "string",
+      "SortKeyType": "string",
+      "StreamArn": "string"
     }
   }
 }

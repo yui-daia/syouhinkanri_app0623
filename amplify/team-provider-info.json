@@ -18,7 +18,8 @@
         "userPoolGroups": {}
       },
       "storage": {
-        "s3amplifyhomesstorage855d51b1": {}
+        "s3amplifyhomesstorage855d51b1": {},
+        "sakumotoApp": {}
       },
       "function": {
         "sakumotodailyreportc9355e11": {},
