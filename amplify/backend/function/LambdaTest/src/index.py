@@ -1,7 +1,7 @@
 import json
 import boto3
 
-def lambda_handler(event, context):
+def handler(event, context):
     # Get the request body.
     body = json.loads(event['body'])
 
@@ -50,7 +50,7 @@ def lambda_handler(event, context):
             'headers': {
                 'Access-Control-Allow-Headers': '*',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,DELETE,PUT'
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
             'body': json.dumps(todo)
         }
@@ -66,7 +66,7 @@ def lambda_handler(event, context):
             'headers': {
                 'Access-Control-Allow-Headers': '*',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,DELETE,PUT'
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
             'body': json.dumps(todos)
         }
