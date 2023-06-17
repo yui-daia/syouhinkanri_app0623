@@ -18,6 +18,7 @@ const TodoPage = () => {
       setUser(user);
       const token = user.signInUserSession.idToken.jwtToken;
       setIdToken(token);
+      //{headers: {"Authorization": idToken}}
       setHeaders({
         Authorization: `Bearer ${token}`,
       });
@@ -28,10 +29,10 @@ const TodoPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!idToken || idToken === "") return;
-
-      console.log(headers);
-      const response = await axios.get(API_URL, { headers });
+      if (!idToken || idToken == "") return;
+      console.log("id", idToken);
+      const headerAuth = { headers: { Authorization: `Bearer ${idToken}` } };
+      const response = await axios.get(API_URL, headerAuth);
       setTodos(response.data);
     };
     fetchData();
