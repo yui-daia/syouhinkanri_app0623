@@ -61,4 +61,4 @@ const TodoPage = () => {
   );
 };
 
-export default TodoList;
+export default TodoPage;
