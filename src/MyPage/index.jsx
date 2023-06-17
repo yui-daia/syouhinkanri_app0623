@@ -10,16 +10,6 @@ const MyPage = () => {
   const [userAttributes, setUserAttributes] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://1jpnxrh1h6.execute-api.ap-northeast-2.amazonaws.com/master/test/v1"
-      )
-      .then((response) => {
-        setTodos(response.data);
-      });
-  }, []);
-
-  useEffect(() => {
     const fetchUserAttributes = async () => {
       try {
         const user = await Auth.currentAuthenticatedUser();
