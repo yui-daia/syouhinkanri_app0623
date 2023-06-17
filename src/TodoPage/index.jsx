@@ -13,23 +13,29 @@ const TodoPage = () => {
     "https://1jpnxrh1h6.execute-api.ap-northeast-2.amazonaws.com/prod/test/v1";
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser().then((user) => {
+    const fetchUser = async () => {
+      const user = await Auth.currentAuthenticatedUser();
       setUser(user);
-      setIdToken(user.signInUserSession.idToken.jwtToken);
+      const token = user.signInUserSession.idToken.jwtToken;
+      setIdToken(token);
       setHeaders({
-        Authorization: `Bearer ${idToken}`,
+        Authorization: `Bearer ${token}`,
       });
-    });
+    };
+
+    fetchUser();
   }, []);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(API_URL, headers);
+      if (!idToken || idToken === "") return;
+
+      console.log(headers);
+      const response = await axios.get(API_URL, { headers });
       setTodos(response.data);
     };
-
     fetchData();
-  }, [user]);
+  }, [idToken]);
 
   const handleCreateTodo = (todo) => {
     axios.post(API_URL, todo, headers).then((response) => {
@@ -53,7 +59,7 @@ const TodoPage = () => {
     <div>
       <h1>Todo List</h1>
       <ul>
-        {todos?.map((todo) => (
+        {todos.map((todo) => (
           <li key={todo.id}>
             {todo.title}
             <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
