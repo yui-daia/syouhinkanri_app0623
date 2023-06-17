@@ -6,7 +6,7 @@ def handler(event, context):
     dynamodb = boto3.resource('dynamodb')
 
     # Get the Todo table.
-    todo_table = dynamodb.Table('sakumoto_todo')
+    todo_table = dynamodb.Table('sakumotoApp-master')
 
     # If the request is a POST request, do the following.
     if event['httpMethod'] == 'POST':
