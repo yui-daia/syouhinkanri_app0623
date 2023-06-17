@@ -30,15 +30,16 @@
         },
         "LambdaTest": {
           "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
-          "s3Key": "amplify-builds/LambdaTest-362b695a7a6f6f395430-build.zip"
+          "s3Key": "amplify-builds/LambdaTest-42587a6b717542657639-build.zip"
         },
         "LambdaTest1": {
           "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
-          "s3Key": "amplify-builds/LambdaTest1-38626867426a596b3235-build.zip"
+          "s3Key": "amplify-builds/LambdaTest1-43516234616144413742-build.zip"
         }
       },
       "api": {
-        "LambdaTest": {}
+        "LambdaTest": {},
+        "todoApps": {}
       }
     }
   }

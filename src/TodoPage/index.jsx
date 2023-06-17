@@ -9,8 +9,12 @@ const TodoPage = () => {
     Authorization: "",
   });
   const [idToken, setIdToken] = useState("");
+  const [title, setTitle] = useState("");
+  const [modelId, setModelId] = useState(0);
+  const [description, setDescription] = useState("");
+
   const API_URL =
-    "https://1jpnxrh1h6.execute-api.ap-northeast-2.amazonaws.com/prod/test/v1";
+    "https://81c2dplej4.execute-api.ap-northeast-2.amazonaws.com/master/todo";
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,16 +34,19 @@ const TodoPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!idToken || idToken == "") return;
-      console.log("id", idToken);
       const headerAuth = { headers: { Authorization: idToken } };
       const response = await axios.get(API_URL, headerAuth);
       setTodos(response.data);
+      setModelId(response.data.Items.length + 2);
     };
     fetchData();
   }, [idToken]);
 
-  const handleCreateTodo = (todo) => {
-    axios.post(API_URL, todo, headers).then((response) => {
+  const handleCreateTodo = () => {
+    const todo = { action: "create", id: modelId, title, description };
+    const headerAuth = { headers: { Authorization: idToken } };
+    console.log(todo);
+    axios.post(API_URL, todo, headerAuth).then((response) => {
       setTodos([...todos, response.data]);
     });
   };
@@ -60,17 +67,32 @@ const TodoPage = () => {
     <div>
       <h1>Todo List</h1>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.title}
-            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
+        {todos.Items && todos.Items.length > 0
+          ? todos.Items.map((todo) => (
+              <li key={todo.id}>
+                {todo.title}
+                <button onClick={() => handleDeleteTodo(todo.id)}>
+                  Delete
+                </button>
+              </li>
+            ))
+          : ""}
       </ul>
-      <form onSubmit={handleCreateTodo}>
-        <input type="text" placeholder="Title" />
-        <input type="text" placeholder="Description" />
-        <input type="submit" value="Create" />
+      <form>
+        <input type="text" placeholder="id" value={modelId} />
+        <input
+          type="text"
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
+        />{" "}
+        {/* <-- Add onChange here */}
+        <input
+          type="text"
+          placeholder="Description"
+          onChange={(e) => setDescription(e.target.value)}
+        />{" "}
+        {/* <-- Add onChange here */}
+        <input type="button" value="Create" onClick={handleCreateTodo} />
       </form>
     </div>
   );

@@ -1,5 +1,13 @@
 import json
 import boto3
+from decimal import Decimal
+
+# Define the DecimalEncoder class.
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Decimal):
+            return float(obj)
+        return super(DecimalEncoder, self).default(obj)
 
 def handler(event, context):
     # Get the DynamoDB client.
@@ -54,7 +62,7 @@ def handler(event, context):
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
-            'body': json.dumps(todo)
+            'body': json.dumps(todo, cls=DecimalEncoder)
         }
 
     # If the request is a GET request without an {id} parameter, do the following.
@@ -70,5 +78,5 @@ def handler(event, context):
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
-            'body': json.dumps(todos)
+            'body': json.dumps(todos, cls=DecimalEncoder)
         }
