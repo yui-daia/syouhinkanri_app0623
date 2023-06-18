@@ -1,5 +1,4 @@
 import { Amplify } from "aws-amplify";
-
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "@aws-amplify/ui-react/styles.css";
