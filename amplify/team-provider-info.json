@@ -36,11 +36,16 @@
         "LambdaTest1": {
           "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
           "s3Key": "amplify-builds/LambdaTest1-43516234616144413742-build.zip"
+        },
+        "sakumotoAppUser": {
+          "deploymentBucketName": "amplify-amplifyhomes-master-124532-deployment",
+          "s3Key": "amplify-builds/sakumotoAppUser-62594f3642744f463044-build.zip"
         }
       },
       "api": {
         "LambdaTest": {},
-        "todoApps": {}
+        "todoApps": {},
+        "sakumotoAppUser": {}
       }
     }
   }
