@@ -45,7 +45,6 @@ const TodoPage = () => {
   const handleCreateTodo = () => {
     const todo = { action: "create", id: modelId, title, description };
     const headerAuth = { headers: { Authorization: idToken } };
-    console.log(todo);
     axios.post(API_URL, todo, headerAuth).then((response) => {
       setTodos([...todos, response.data]);
     });

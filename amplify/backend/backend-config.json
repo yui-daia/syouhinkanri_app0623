@@ -14,6 +14,20 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "sakumotoAppUser": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "sakumotoAppUser"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "todoApps": {
       "dependsOn": [
         {
@@ -89,6 +103,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "sakumotoAppUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "todoFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -125,6 +144,22 @@
         {
           "category": "function",
           "resourceName": "LambdaTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_sakumotoAppUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sakumotoAppUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_sakumotoAppUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sakumotoAppUser"
         }
       ]
     },

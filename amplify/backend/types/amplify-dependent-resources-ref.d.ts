@@ -5,6 +5,11 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiName": "string",
       "RootUrl": "string"
     },
+    "sakumotoAppUser": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
     "todoApps": {
       "ApiId": "string",
       "ApiName": "string",
@@ -34,6 +39,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string"
     },
     "LambdaTest1": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "sakumotoAppUser": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
