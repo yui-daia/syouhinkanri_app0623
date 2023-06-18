@@ -154,6 +154,10 @@
     "sakumotoApp": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
+    },
+    "sakumotoAppUser": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }
