@@ -19,7 +19,8 @@
       },
       "storage": {
         "s3amplifyhomesstorage855d51b1": {},
-        "sakumotoApp": {}
+        "sakumotoApp": {},
+        "sakumotoAppUser": {}
       },
       "function": {
         "sakumotodailyreportc9355e11": {},
