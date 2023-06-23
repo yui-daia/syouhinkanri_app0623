@@ -1,50 +1,29 @@
 {
   "api": {
-    "LambdaTest": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
+    "amplifyhomes": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
           ],
-          "category": "function",
-          "resourceName": "LambdaTest1"
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
         }
-      ],
+      },
       "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    },
-    "sakumotoAppUser": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "sakumotoAppUser"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    },
-    "todoApps": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "LambdaTest"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
+      "service": "AppSync"
     }
   },
   "auth": {
-    "amplifyhomes": {
+    "yuiapp": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -72,127 +51,13 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
-    },
-    "userPoolGroups": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "amplifyhomes"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito-UserPool-Groups"
-    }
-  },
-  "function": {
-    "LambdaTest": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "LambdaTest1": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "sakumotoAppUser": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "todoFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_function_LambdaTest1_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LambdaTest1"
-        }
-      ]
-    },
-    "AMPLIFY_function_LambdaTest1_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LambdaTest1"
-        }
-      ]
-    },
-    "AMPLIFY_function_LambdaTest_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LambdaTest"
-        }
-      ]
-    },
-    "AMPLIFY_function_LambdaTest_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LambdaTest"
-        }
-      ]
-    },
-    "AMPLIFY_function_sakumotoAppUser_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "sakumotoAppUser"
-        }
-      ]
-    },
-    "AMPLIFY_function_sakumotoAppUser_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "sakumotoAppUser"
-        }
-      ]
-    },
-    "AMPLIFY_function_todoFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "todoFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_todoFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "todoFunction"
-        }
-      ]
     }
   },
   "storage": {
-    "s3amplifyhomesstorage855d51b1": {
+    "s3yuiappstorageb047c768": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"
-    },
-    "sakumotoApp": {
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB"
-    },
-    "sakumotoAppUser": {
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB"
     }
   }
 }

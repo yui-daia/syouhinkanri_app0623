@@ -23,28 +23,26 @@ export default function HomeCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
+    languageofflower: "",
     name: "",
-    image_url: "",
-    bounty: "",
-    birthday: "",
+    img: "",
   };
+  const [languageofflower, setLanguageofflower] = React.useState(
+    initialValues.languageofflower
+  );
   const [name, setName] = React.useState(initialValues.name);
-  const [image_url, setImage_url] = React.useState(initialValues.image_url);
-  const [bounty, setBounty] = React.useState(initialValues.bounty);
-  const [birthday, setBirthday] = React.useState(initialValues.birthday);
+  const [img, setImg] = React.useState(initialValues.img);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
+    setLanguageofflower(initialValues.languageofflower);
     setName(initialValues.name);
-    setImage_url(initialValues.image_url);
-    setBounty(initialValues.bounty);
-    setBirthday(initialValues.birthday);
+    setImg(initialValues.img);
     setErrors({});
   };
   const validations = {
+    languageofflower: [],
     name: [],
-    image_url: [],
-    bounty: [],
-    birthday: [],
+    img: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -72,10 +70,9 @@ export default function HomeCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
+          languageofflower,
           name,
-          image_url,
-          bounty,
-          birthday,
+          img,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -122,6 +119,32 @@ export default function HomeCreateForm(props) {
       {...rest}
     >
       <TextField
+        label="Languageofflower"
+        isRequired={false}
+        isReadOnly={false}
+        value={languageofflower}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              languageofflower: value,
+              name,
+              img,
+            };
+            const result = onChange(modelFields);
+            value = result?.languageofflower ?? value;
+          }
+          if (errors.languageofflower?.hasError) {
+            runValidationTasks("languageofflower", value);
+          }
+          setLanguageofflower(value);
+        }}
+        onBlur={() => runValidationTasks("languageofflower", languageofflower)}
+        errorMessage={errors.languageofflower?.errorMessage}
+        hasError={errors.languageofflower?.hasError}
+        {...getOverrideProps(overrides, "languageofflower")}
+      ></TextField>
+      <TextField
         label="Name"
         isRequired={false}
         isReadOnly={false}
@@ -130,10 +153,9 @@ export default function HomeCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              languageofflower,
               name: value,
-              image_url,
-              bounty,
-              birthday,
+              img,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -149,85 +171,30 @@ export default function HomeCreateForm(props) {
         {...getOverrideProps(overrides, "name")}
       ></TextField>
       <TextField
-        label="Image url"
+        label="Img"
         isRequired={false}
         isReadOnly={false}
-        value={image_url}
+        value={img}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              languageofflower,
               name,
-              image_url: value,
-              bounty,
-              birthday,
+              img: value,
             };
             const result = onChange(modelFields);
-            value = result?.image_url ?? value;
+            value = result?.img ?? value;
           }
-          if (errors.image_url?.hasError) {
-            runValidationTasks("image_url", value);
+          if (errors.img?.hasError) {
+            runValidationTasks("img", value);
           }
-          setImage_url(value);
+          setImg(value);
         }}
-        onBlur={() => runValidationTasks("image_url", image_url)}
-        errorMessage={errors.image_url?.errorMessage}
-        hasError={errors.image_url?.hasError}
-        {...getOverrideProps(overrides, "image_url")}
-      ></TextField>
-      <TextField
-        label="Bounty"
-        isRequired={false}
-        isReadOnly={false}
-        value={bounty}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              image_url,
-              bounty: value,
-              birthday,
-            };
-            const result = onChange(modelFields);
-            value = result?.bounty ?? value;
-          }
-          if (errors.bounty?.hasError) {
-            runValidationTasks("bounty", value);
-          }
-          setBounty(value);
-        }}
-        onBlur={() => runValidationTasks("bounty", bounty)}
-        errorMessage={errors.bounty?.errorMessage}
-        hasError={errors.bounty?.hasError}
-        {...getOverrideProps(overrides, "bounty")}
-      ></TextField>
-      <TextField
-        label="Birthday"
-        isRequired={false}
-        isReadOnly={false}
-        value={birthday}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              image_url,
-              bounty,
-              birthday: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.birthday ?? value;
-          }
-          if (errors.birthday?.hasError) {
-            runValidationTasks("birthday", value);
-          }
-          setBirthday(value);
-        }}
-        onBlur={() => runValidationTasks("birthday", birthday)}
-        errorMessage={errors.birthday?.errorMessage}
-        hasError={errors.birthday?.hasError}
-        {...getOverrideProps(overrides, "birthday")}
+        onBlur={() => runValidationTasks("img", img)}
+        errorMessage={errors.img?.errorMessage}
+        hasError={errors.img?.hasError}
+        {...getOverrideProps(overrides, "img")}
       ></TextField>
       <Flex
         justifyContent="space-between"
