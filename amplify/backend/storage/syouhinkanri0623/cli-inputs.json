@@ -1,0 +1,10 @@
+{
+  "resourceName": "syouhinkanri0623",
+  "tableName": "syouhinkanri0623",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

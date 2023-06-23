@@ -9,14 +9,25 @@
       "UnauthRoleName": "amplify-syouhinkanriyui-staging-24610-unauthRole",
       "StackName": "amplify-syouhinkanriyui-staging-24610",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:711556954185:stack/amplify-syouhinkanriyui-staging-24610/505a08a0-f5ef-11ed-bb3a-06f062ad22cb",
-      "AmplifyAppId": "d3qlkimxiaui1r"
+      "AmplifyAppId": "d3qlkimxiaui1r",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-syouhinkanriyui-staging-24610-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "yuiapp": {}
       },
       "storage": {
-        "s3yuiappstorageb047c768": {}
+        "s3yuiappstorageb047c768": {},
+        "syouhinkanri0623": {}
+      },
+      "function": {
+        "syouhinkanriyuia6f4c3b5": {
+          "deploymentBucketName": "amplify-syouhinkanriyui-staging-24610-deployment",
+          "s3Key": "amplify-builds/syouhinkanriyuia6f4c3b5-6138637a6e6c7269444f-build.zip"
+        }
+      },
+      "api": {
+        "yuiAppUser": {}
       }
     }
   }
