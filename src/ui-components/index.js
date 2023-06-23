@@ -38,7 +38,3 @@ export { default as LItemCode } from "./LItemCode";
 export { default as Number } from "./Number";
 export { default as Page1 } from "./Page1";
 export { default as studioTheme } from "./studioTheme";
-export { default as ArrivalCreateForm } from "./ArrivalCreateForm";
-export { default as ArrivalUpdateForm } from "./ArrivalUpdateForm";
-export { default as HomeCreateForm } from "./HomeCreateForm";
-export { default as HomeUpdateForm } from "./HomeUpdateForm";
