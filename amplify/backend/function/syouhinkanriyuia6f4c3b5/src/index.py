@@ -61,10 +61,26 @@ def handler(event, context):
             # Read the Excel file with pandas
             df = pd.read_excel(excel_file, engine='openpyxl')
 
+            # Convert the dataframe to a JSON object
+            json_data = df.to_json(orient='records')
+
+            # Return the JSON data
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+                },
+                'body': json_data
+            }
+
             # Insert each row from the 2nd row onward to DynamoDB
-            for index, row in df.iloc[1:].iterrows():
-                item = {column: str(value) for column, value in row.iteritems()}
-                app_table.put_item(Item=item)
+            # Commented out the following code
+            # for index, row in df.iloc[1:].iterrows():
+            #     item = {column: str(value) for column, value in row.iteritems()}
+            #     app_table.put_item(Item=item)
+
 
     # GET /{id} アクセスの場合はこちら
     elif event['httpMethod'] == 'GET' and event.get('queryStringParameters') and 'id' in event['queryStringParameters']:
