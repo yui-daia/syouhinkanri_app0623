@@ -83,7 +83,7 @@ const ItemPage = () => {
         <Input placeholder="テーブル内を検索" value={searchText} onChange={handleInputChange} />
         <Button onClick={handleSearch}>テーブル検索</Button>
         <Button onClick={handleReset}>検索クリア</Button>
-        <Table dataSource={data} columns={columns} pagination={{ pageSize: 100 }} />
+        <Table dataSource={data} columns={columns} pagination={{ pageSize: 100 }} scroll={{ x: 800 }} />
       </ConfigProvider>
     </>
   );
