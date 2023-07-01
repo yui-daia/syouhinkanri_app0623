@@ -2,6 +2,9 @@ import json
 import boto3
 import uuid
 from decimal import Decimal
+import pandas as pd
+from io import BytesIO
+import base64
 
 # Define the DecimalEncoder class.
 class DecimalEncoder(json.JSONEncoder):
@@ -47,6 +50,21 @@ def handler(event, context):
             app_table.delete_item(Key={
                 'id': body['id']
             })
+
+        # Excel upload アクセスの場合はこちら
+        elif body['action'] == 'excel_upload':
+            # Assume the Excel file is sent as a base64 encoded string
+            base64_excel = body['file']
+            excel_data = base64.b64decode(base64_excel)
+            excel_file = BytesIO(excel_data)
+
+            # Read the Excel file with pandas
+            df = pd.read_excel(excel_file, engine='openpyxl')
+
+            # Insert each row from the 2nd row onward to DynamoDB
+            for index, row in df.iloc[1:].iterrows():
+                item = {column: str(value) for column, value in row.iteritems()}
+                app_table.put_item(Item=item)
 
     # GET /{id} アクセスの場合はこちら
     elif event['httpMethod'] == 'GET' and event.get('queryStringParameters') and 'id' in event['queryStringParameters']:

@@ -50,7 +50,7 @@ const MyPage = () => {
         <Link to="/my_page">マイページへ</Link>
       </div>
       <div>
-        <Link to="/todo_page">TODOページへ</Link>
+        <Link to="/file_uploader">ファイルアップロード</Link>
       </div>
       <Button onClick={signOut}>ログアウトする</Button>
     </>
