@@ -54,6 +54,9 @@ def handler(event, context):
             })
 
         elif body['action'] == 'excel_upload':
+            # Initialize counts
+            update_count = 0
+            insert_count = 0
             base64_excel = body['file']
             csv_data = base64.b64decode(base64_excel).decode('utf-8')
             csv_file = csv.reader(csv_data.splitlines())
@@ -69,7 +72,8 @@ def handler(event, context):
                     record['id'] = str(uuid.uuid4())
 
                 # Change E_Date to ymd format
-                record['E_Date'] = datetime.utcfromtimestamp(int(record['E_Date'])/1000).strftime('%Y-%m-%d')
+                date_object = datetime.strptime(record['E_Date'], '%Y/%m/%d')
+                record['E_Date'] = date_object.strftime('%Y-%m-%d')
 
                 # Check if the record already exists
                 existing_item = app_table.query(
