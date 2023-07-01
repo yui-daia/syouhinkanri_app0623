@@ -10,6 +10,7 @@ import MyPage from "./MyPage";
 import TodoPage from "./TodoPage";
 import MainLayout from "./Layout";
 import FileUploader from "./FileUploader";
+import ItemPage from "./ItemPage";
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
@@ -20,6 +21,7 @@ function App({ signOut, user }) {
       <MainLayout>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/item" element={<ItemPage />} />
           <Route path="/blank" element={<BlankPage />} />
           <Route path="/user_edit" element={<UserEdit />} />
           <Route path="/my_page" element={<MyPage />} />

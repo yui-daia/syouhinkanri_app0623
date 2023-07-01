@@ -14,7 +14,7 @@ const MainLayout = ({children}) => {
           defaultSelectedKeys={['2']}
         >
           <Menu.Item key="1">
-            <Link to="/blank">ブランクページへ</Link>
+            <Link to="/item">アイテムページ</Link>
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/my_page">マイページへ</Link>

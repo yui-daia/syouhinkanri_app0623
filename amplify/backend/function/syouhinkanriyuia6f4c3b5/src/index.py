@@ -64,6 +64,7 @@ def handler(event, context):
             # Convert the CSV to a dictionary
             records = []
             headers = next(csv_file)
+            headers = [header for header in headers if header != '']
             for row in csv_file:
                 record = dict(zip(headers, row))
                 
@@ -128,6 +129,26 @@ def handler(event, context):
                     'insert_count': insert_count,
                     'update_count': update_count
                 })
+            }
+
+
+        elif body['action'] == 'search_date':
+            # Extract the date from the request
+            search_date = body['date']
+
+            # Query the table
+            filter_expression = Attr('E_Date').eq(search_date)
+            search_results = app_table.scan(FilterExpression=filter_expression)
+
+            # Return the search results as JSON
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+                },
+                'body': json.dumps(search_results, cls=DecimalEncoder)
             }
 
     # GET /{id} アクセスの場合はこちら
