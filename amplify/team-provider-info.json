@@ -19,12 +19,15 @@
       "function": {
         "syouhinkanriyuia6f4c3b5": {
           "deploymentBucketName": "amplify-syouhinkanriyui-staging-24610-deployment",
-          "s3Key": "amplify-builds/syouhinkanriyuia6f4c3b5-6138637a6e6c7269444f-build.zip"
+          "s3Key": "amplify-builds/syouhinkanriyuia6f4c3b5-444a6377515251667541-build.zip"
         }
       },
       "storage": {
         "s3yuiappstorageb047c768": {},
         "syouhinkanri0623": {}
+      },
+      "api": {
+        "yuiAppUser": {}
       }
     }
   }
