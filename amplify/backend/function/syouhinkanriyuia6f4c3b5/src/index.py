@@ -3,7 +3,7 @@ import json
 import boto3
 import uuid
 from datetime import datetime
-from boto3.dynamodb.conditions import Key
+from boto3.dynamodb.conditions import Key, Attr
 from decimal import Decimal
 from io import BytesIO
 import base64
@@ -71,20 +71,30 @@ def handler(event, context):
                 if 'id' not in record:
                     record['id'] = str(uuid.uuid4())
 
-                # Change E_Date to ymd format
-                date_object = datetime.strptime(record['E_Date'], '%Y/%m/%d')
-                record['E_Date'] = date_object.strftime('%Y-%m-%d')
+                # Skip records with empty or invalid 'E_Date' 
+                try:
+                    date_object = datetime.strptime(record['E_Date'], '%Y/%m/%d')
+                    record['E_Date'] = date_object.strftime('%Y-%m-%d')
+                except ValueError:
+                    continue
 
-                # Check if the record already exists
-                existing_item = app_table.query(
-                    KeyConditionExpression=Key('B_OrderNumber').eq(record['B_OrderNumber']) & Key('E_Date').eq(record['E_Date'])
+                # Remove empty keys
+                record = {k: v for k, v in record.items() if k}
+
+                # Ensure 'B_OrderNumber' is not an empty string
+                if 'B_OrderNumber' in record and not record['B_OrderNumber']:
+                    continue  # Skip this record if 'B_OrderNumber' is empty
+
+                # Check if the record already exists using scan
+                scan_response = app_table.scan(
+                    FilterExpression=Attr('B_OrderNumber').eq(record['B_OrderNumber']) & Attr('E_Date').eq(record['E_Date'])
                 )
 
-                if existing_item['Count'] > 0:
+                if scan_response['Count'] > 0:
                     # The record exists, update it
                     app_table.update_item(
                         Key={
-                            'id': existing_item['Items'][0]['id']
+                            'id': scan_response['Items'][0]['id']
                         },
                         UpdateExpression="set B_OrderNumber=:on, E_Date=:ed, G_SupplierCode=:sc, H_supplier=:hs, L_ItemCode=:ic, M_ItemName=:in, R_qaunty=:rq, T_unit=:tu, AB_detail1=:d1, AC_detail2=:d2",
                         ExpressionAttributeValues={
