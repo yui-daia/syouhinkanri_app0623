@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-const FileUpload = () => {
+const FileUploader = () => {
   const [fileList, setFileList] = useState([]);
 
   const handleChange = info => {
