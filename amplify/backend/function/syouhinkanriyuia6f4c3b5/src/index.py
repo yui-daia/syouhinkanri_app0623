@@ -59,7 +59,7 @@ def handler(event, context):
             excel_file = BytesIO(excel_data)
 
             # Read the Excel file with pandas
-            df = pd.read_excel(excel_file)
+            df = pd.read_excel(excel_file, engine='openpyxl')
 
             # Convert the dataframe to a JSON object
             json_data = df.to_json(orient='records')
