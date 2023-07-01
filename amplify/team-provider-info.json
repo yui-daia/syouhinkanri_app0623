@@ -19,7 +19,7 @@
       "function": {
         "syouhinkanriyuia6f4c3b5": {
           "deploymentBucketName": "amplify-syouhinkanriyui-staging-24610-deployment",
-          "s3Key": "amplify-builds/syouhinkanriyuia6f4c3b5-664a5743396b6c366645-build.zip"
+          "s3Key": "amplify-builds/syouhinkanriyuia6f4c3b5-39664b42643766566a58-build.zip"
         }
       },
       "storage": {
