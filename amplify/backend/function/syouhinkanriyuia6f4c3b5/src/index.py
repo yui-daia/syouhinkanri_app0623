@@ -1,9 +1,9 @@
+import csv
 import json
 import boto3
 import uuid
 from boto3.dynamodb.conditions import Key
 from decimal import Decimal
-import pandas as pd
 from io import BytesIO
 import base64
 
@@ -54,24 +54,21 @@ def handler(event, context):
 
         elif body['action'] == 'excel_upload':
             base64_excel = body['file']
-            excel_data = base64.b64decode(base64_excel)
-            excel_file = BytesIO(excel_data)
-            df = pd.read_excel(excel_file, engine='openpyxl')
+            csv_data = base64.b64decode(base64_excel).decode('utf-8')
+            csv_file = csv.reader(csv_data.splitlines())
 
-            # Convert the dataframe to a dictionary
-            records = df.to_dict('records')
-
-            # Initialize insert and update counts
-            insert_count = 0
-            update_count = 0
-
-            for record in records:
+            # Convert the CSV to a dictionary
+            records = []
+            headers = next(csv_file)
+            for row in csv_file:
+                record = dict(zip(headers, row))
+                
                 # Add uuid as the id field if not already present
                 if 'id' not in record:
                     record['id'] = str(uuid.uuid4())
 
                 # Change E_Date to ymd format
-                record['E_Date'] = pd.to_datetime(record['E_Date'], unit='ms').strftime('%Y-%m-%d')
+                record['E_Date'] = datetime.utcfromtimestamp(int(record['E_Date'])/1000).strftime('%Y-%m-%d')
 
                 # Check if the record already exists
                 existing_item = app_table.query(
@@ -117,7 +114,6 @@ def handler(event, context):
                     'update_count': update_count
                 })
             }
-
 
     # GET /{id} アクセスの場合はこちら
     elif event['httpMethod'] == 'GET' and event.get('queryStringParameters') and 'id' in event['queryStringParameters']:
