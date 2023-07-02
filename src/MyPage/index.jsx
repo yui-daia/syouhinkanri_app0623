@@ -43,16 +43,6 @@ const MyPage = () => {
   return (
     <>
       <Table columns={columns} dataSource={userAttributes} />
-      <div>
-        <Link to="/blank">ブランクページへ</Link>
-      </div>
-      <div>
-        <Link to="/my_page">マイページへ</Link>
-      </div>
-      <div>
-        <Link to="/file_uploader">ファイルアップロード</Link>
-      </div>
-      <Button onClick={signOut}>ログアウトする</Button>
     </>
   );
 };
