@@ -43,12 +43,35 @@ const ItemPage = () => {
           'https://gw9jr2td1f.execute-api.ap-northeast-1.amazonaws.com/staging/users',
           {
             action: 'search_date',
-            date: date.format('YYYY-MM-DD'),
+            date: date.format('YYYY/MM/DD 00:00'),
           },
           { headers: headers },
         );
-        setData(response.data.Items);
-        setOriginalData(response.data.Items);
+  
+        // Mapping table
+        const headerMapping = {
+          '発注番号': 'B_OrderNumber',
+          '入荷年月日': 'E_Date',
+          '仕入先ｺｰﾄﾞ': 'G_SupplierCode',
+          '仕入先正式名称': 'H_supplier',
+          '商品ｺｰﾄﾞ': 'L_ItemCode',
+          '商品正式名称': 'M_ItemName',
+          '入荷数量': 'R_qaunty',
+          '入荷単位名称': 'T_unit',
+          '発注備考': 'AB_detail1',
+          '明細備考': 'AC_detail2'
+        };
+  
+        const dataWithMappedColumns = response.data.Items.map(item => {
+          const mappedItem = {};
+          for (const key in item) {
+            mappedItem[headerMapping[key] || key] = item[key];
+          }
+          return mappedItem;
+        });
+  
+        setData(dataWithMappedColumns);
+        setOriginalData(dataWithMappedColumns);
       } catch (err) {
         message.error('データの取得に失敗しました');
       } finally {
@@ -79,16 +102,32 @@ const ItemPage = () => {
     setSelectedRowKeys(selectedKeys);
   };
 
-  const columns = Object.keys(data[0] || {}).map(key => ({
-    title: key,
-    dataIndex: key,
-    sorter: (a, b) => a[key].length - b[key].length,
-  }));
-
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
   };
+
+  const headerMapping = {
+    '発注番号': 'B_OrderNumber',
+    '入荷年月日': 'E_Date',
+    '仕入先ｺｰﾄﾞ': 'G_SupplierCode',
+    '仕入先正式名称': 'H_supplier',
+    '商品ｺｰﾄﾞ': 'L_ItemCode',
+    '商品正式名称': 'M_ItemName',
+    '入荷数量': 'R_qaunty',
+    '入荷単位名称': 'T_unit',
+    '発注備考': 'AB_detail1',
+    '明細備考': 'AC_detail2'
+  };
+
+  // Generate columns excluding 'id'
+  const columns = Object.keys(data[0] || {})
+    .filter(key => key !== 'id')
+    .map(key => ({
+      title: headerMapping[key] || key, // Convert header using mapping table
+      dataIndex: headerMapping[key] || key, // Also convert dataIndex using mapping table
+      sorter: (a, b) => a[headerMapping[key] || key].length - b[headerMapping[key] || key].length,
+    }));
 
   return (
     <>

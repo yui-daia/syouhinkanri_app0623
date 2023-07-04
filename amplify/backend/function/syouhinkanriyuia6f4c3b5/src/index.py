@@ -22,6 +22,7 @@ def handler(event, context):
     # Get the Todo table.
     app_table = dynamodb.Table('syouhinkanri0623-staging')
 
+
     # If the request is a POST request, do the following.
     if event['httpMethod'] == 'POST':
         # Get the request body.
@@ -54,6 +55,20 @@ def handler(event, context):
             })
 
         elif body['action'] == 'excel_upload':
+
+            csv_to_dynamodb_mapping = {
+                '発注番号': 'B_OrderNumber',
+                '入荷年月日': 'E_Date',
+                '仕入先ｺｰﾄﾞ': 'G_SupplierCode',
+                '仕入先正式名称': 'H_supplier',
+                '商品ｺｰﾄﾞ': 'L_ItemCode',
+                '商品正式名称': 'M_ItemName',
+                '入荷数量': 'R_qaunty',
+                '入荷単位名称': 'T_unit',
+                '発注備考': 'AB_detail1',
+                '明細備考': 'AC_detail2'
+            }
+
             # Initialize counts
             update_count = 0
             insert_count = 0
@@ -63,19 +78,23 @@ def handler(event, context):
 
             # Convert the CSV to a dictionary
             records = []
-            headers = next(csv_file)
-            headers = [header for header in headers if header != '']
+            raw_headers = next(csv_file)
+            headers = [csv_to_dynamodb_mapping.get(header.strip(), None) for header in raw_headers]
+
             for row in csv_file:
-                record = dict(zip(headers, row))
-                
+                print(f"Raw row: {row}")
+                record = {header: value for header, value in zip(headers, row) if header is not None}
+                print(f"Uploading record: {record}")
+                records.append(record)
+
                 # Add uuid as the id field if not already present
                 if 'id' not in record:
                     record['id'] = str(uuid.uuid4())
 
                 # Skip records with empty or invalid 'E_Date' 
                 try:
-                    date_object = datetime.strptime(record['E_Date'], '%Y/%m/%d')
-                    record['E_Date'] = date_object.strftime('%Y-%m-%d')
+                    date_object = datetime.strptime(record['E_Date'], '%Y/%m/%d %H:%M')
+                    record['E_Date'] = date_object.strftime('%Y/%m/%d %H:%M')
                 except ValueError:
                     continue
 
