@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Menu, Layout, Row, Col,message } from 'antd';
 import { Link } from 'react-router-dom';
-import { Auth } from '@aws-amplify/auth';
+import AuthContext from '../AuthContext';
 
 const MainLayout = ({children}) => {
   const { Header, Footer, Content } = Layout;
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authData, setAuthData] = useState({
+    isAuthenticated: false,
+    email: null,
+    sub: null,
+    token:null
+  });
 
   useEffect(() => {
     checkAuthState();
@@ -13,19 +18,20 @@ const MainLayout = ({children}) => {
 
   async function checkAuthState() {
     try {
-      await Auth.currentAuthenticatedUser();
-      setIsAuthenticated(true);
+      const user = await Auth.currentAuthenticatedUser();
+      setAuthData({
+        isAuthenticated: true,
+        email: user.attributes.email,
+        sub: user.attributes.sub,
+        token:user.signInUserSession.idToken.jwtToken,
+      });
     } catch {
-      setIsAuthenticated(false);
-    }
-  }
-
-  async function handleLogout() {
-    try {
-      await Auth.signOut();
-      setIsAuthenticated(false);
-    } catch (error) {
-      message.error('認証に失敗しました');
+      setAuthData({
+        isAuthenticated: false,
+        email: null,
+        sub: null,
+        token:null
+      });
     }
   }
 
@@ -41,15 +47,15 @@ const MainLayout = ({children}) => {
               defaultSelectedKeys={['1']}
             >
               <Menu.Item key="1">
-                <Link to="/item">アイテムページ</Link>
+                <Link to="/item">入荷情報</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/my_page">マイページへ</Link>
+                <Link to="/my_page">マイページ</Link>
               </Menu.Item>
               <Menu.Item key="3">
                 <Link to="/file_uploader">ファイルアップ</Link>
               </Menu.Item>
-              {isAuthenticated && (
+              {authData.isAuthenticated && (
                 <Menu.Item key="4" onClick={handleLogout}>
                   ログアウト
                 </Menu.Item>
