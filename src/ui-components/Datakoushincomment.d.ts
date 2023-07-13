@@ -6,15 +6,13 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ViewProps } from "@aws-amplify/ui-react";
+import { TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type ABdetail1OverridesProps = {
-    ABdetail1?: PrimitiveOverrideProps<ViewProps>;
-    AB_detail1?: PrimitiveOverrideProps<ViewProps>;
+export declare type DatakoushincommentOverridesProps = {
+    Datakoushincomment?: PrimitiveOverrideProps<ViewProps>;
+    data?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type ABdetail1Props = React.PropsWithChildren<Partial<ViewProps> & {
-    aB_detail1?: React.ReactNode;
-} & {
-    overrides?: ABdetail1OverridesProps | undefined | null;
+export declare type DatakoushincommentProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: DatakoushincommentOverridesProps | undefined | null;
 }>;
-export default function ABdetail1(props: ABdetail1Props): React.ReactElement;
+export default function Datakoushincomment(props: DatakoushincommentProps): React.ReactElement;

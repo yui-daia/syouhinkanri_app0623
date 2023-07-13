@@ -7,40 +7,27 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { View } from "@aws-amplify/ui-react";
-export default function Login(props) {
+import { Flex, View } from "@aws-amplify/ui-react";
+export default function Group1(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="149px"
-      height="23px"
+      width="360px"
+      height="105px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Login")}
+      {...getOverrideProps(overrides, "Group1")}
       {...rest}
     >
-      <View
-        width="149px"
-        height="23px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        border="1px SOLID rgba(0,0,0,0.27)"
-        borderRadius="5px"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(245,245,245,1)"
-        {...getOverrideProps(overrides, "log in")}
-      ></View>
+      <Flex
+        width="unset"
+        height="unset"
+        {...getOverrideProps(overrides, "Component 1")}
+      ></Flex>
     </View>
   );
 }

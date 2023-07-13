@@ -12,7 +12,7 @@ export default function Search(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="153px"
+      width="161px"
       height="16px"
       display="block"
       gap="unset"
@@ -24,18 +24,18 @@ export default function Search(props) {
       {...rest}
     >
       <Icon
-        width="153px"
+        width="161px"
         height="16px"
-        viewBox={{ minX: 0, minY: 0, width: 153, height: 16 }}
+        viewBox={{ minX: 0, minY: 0, width: 161, height: 16 }}
         paths={[
           {
-            d: "M0 0L0 -0.5L-0.5 -0.5L-0.5 0L0 0ZM153 0L153.5 0L153.5 -0.5L153 -0.5L153 0ZM153 16L153 16.5L153.5 16.5L153.5 16L153 16ZM0 16L-0.5 16L-0.5 16.5L0 16.5L0 16ZM0 0.5L153 0.5L153 -0.5L0 -0.5L0 0.5ZM152.5 0L152.5 16L153.5 16L153.5 0L152.5 0ZM153 15.5L0 15.5L0 16.5L153 16.5L153 15.5ZM0.5 16L0.5 0L-0.5 0L-0.5 16L0.5 16Z",
+            d: "M0 0L0 -0.5L-0.5 -0.5L-0.5 0L0 0ZM161 0L161.5 0L161.5 -0.5L161 -0.5L161 0ZM161 16L161 16.5L161.5 16.5L161.5 16L161 16ZM0 16L-0.5 16L-0.5 16.5L0 16.5L0 16ZM0 0.5L161 0.5L161 -0.5L0 -0.5L0 0.5ZM160.5 0L160.5 16L161.5 16L161.5 0L160.5 0ZM161 15.5L0 15.5L0 16.5L161 16.5L161 15.5ZM0.5 16L0.5 0L-0.5 0L-0.5 16L0.5 16Z",
             stroke: "rgba(0,0,0,0.73)",
             fillRule: "nonzero",
             strokeWidth: 0,
           },
           {
-            d: "M0 0L153 0L153 16L0 16L0 0Z",
+            d: "M0 0L161 0L161 16L0 16L0 0Z",
             fill: "rgba(217,217,217,1)",
             fillRule: "nonzero",
           },

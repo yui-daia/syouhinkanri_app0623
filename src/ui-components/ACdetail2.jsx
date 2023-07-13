@@ -13,7 +13,7 @@ export default function ACdetail2(props) {
   return (
     <View
       width="55px"
-      height="15px"
+      height="8px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,7 +25,7 @@ export default function ACdetail2(props) {
     >
       <View
         width="55px"
-        height="15px"
+        height="8px"
         {...getOverrideProps(overrides, "AC_detail2")}
       ></View>
     </View>

@@ -6,11 +6,11 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EDateOverridesProps = {
     EDate?: PrimitiveOverrideProps<ViewProps>;
-    E_Date?: PrimitiveOverrideProps<TextProps>;
+    E_Date?: PrimitiveOverrideProps<ViewProps>;
 } & EscapeHatchProps;
 export declare type EDateProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EDateOverridesProps | undefined | null;

@@ -13,7 +13,7 @@ export default function ReturnMaine(props) {
   return (
     <View
       width="97px"
-      height="24px"
+      height="21px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,7 +25,7 @@ export default function ReturnMaine(props) {
     >
       <View
         width="97px"
-        height="24px"
+        height="21px"
         {...getOverrideProps(overrides, "ReturnMaine1204250")}
       ></View>
     </View>

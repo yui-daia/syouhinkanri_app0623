@@ -13,7 +13,7 @@ export default function Rqaunty(props) {
   return (
     <View
       width="19px"
-      height="12px"
+      height="5px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,7 +25,7 @@ export default function Rqaunty(props) {
     >
       <View
         width="19px"
-        height="12px"
+        height="5px"
         {...getOverrideProps(overrides, "R_qaunty")}
       ></View>
     </View>

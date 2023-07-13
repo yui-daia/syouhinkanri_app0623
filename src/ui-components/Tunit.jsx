@@ -13,7 +13,7 @@ export default function Tunit(props) {
   return (
     <View
       width="8.21px"
-      height="10.17px"
+      height="3.17px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,7 +25,7 @@ export default function Tunit(props) {
     >
       <View
         width="8.21px"
-        height="10.17px"
+        height="3.17px"
         {...getOverrideProps(overrides, "T_unit")}
       ></View>
     </View>

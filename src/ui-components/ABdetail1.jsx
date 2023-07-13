@@ -9,11 +9,11 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { View } from "@aws-amplify/ui-react";
 export default function ABdetail1(props) {
-  const { overrides, ...rest } = props;
+  const { aB_detail1, overrides, ...rest } = props;
   return (
     <View
       width="42px"
-      height="11px"
+      height="4px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,7 +25,8 @@ export default function ABdetail1(props) {
     >
       <View
         width="42px"
-        height="11px"
+        height="4px"
+        children={aB_detail1}
         {...getOverrideProps(overrides, "AB_detail1")}
       ></View>
     </View>

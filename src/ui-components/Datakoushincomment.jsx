@@ -7,40 +7,46 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { View } from "@aws-amplify/ui-react";
-export default function Login(props) {
+import { Text, View } from "@aws-amplify/ui-react";
+export default function Datakoushincomment(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="149px"
-      height="23px"
+      width="77px"
+      height="9.06px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Login")}
+      {...getOverrideProps(overrides, "Datakoushincomment")}
       {...rest}
     >
-      <View
-        width="149px"
-        height="23px"
+      <Text
+        fontFamily="Inter"
+        fontSize="6.039215087890625px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="7.3088226318359375px"
+        textAlign="left"
         display="block"
+        direction="column"
+        justifyContent="unset"
+        width="77px"
+        height="9.06px"
         gap="unset"
         alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="0%"
         bottom="0%"
         left="0%"
         right="0%"
-        border="1px SOLID rgba(0,0,0,0.27)"
-        borderRadius="5px"
         padding="0px 0px 0px 0px"
-        backgroundColor="rgba(245,245,245,1)"
-        {...getOverrideProps(overrides, "log in")}
-      ></View>
+        whiteSpace="pre-wrap"
+        children="更新日時：2023年○月○日"
+        {...getOverrideProps(overrides, "data")}
+      ></Text>
     </View>
   );
 }

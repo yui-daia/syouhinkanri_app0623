@@ -53,6 +53,7 @@ export default function Header(props) {
         right="10.56%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src=""
         {...getOverrideProps(overrides, "logo1")}
       ></Image>
     </View>

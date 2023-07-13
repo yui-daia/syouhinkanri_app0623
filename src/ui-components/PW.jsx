@@ -8,24 +8,24 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { View } from "@aws-amplify/ui-react";
-export default function Login(props) {
+export default function PW(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="149px"
-      height="23px"
+      width="90px"
+      height="24px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Login")}
+      {...getOverrideProps(overrides, "PW")}
       {...rest}
     >
       <View
-        width="149px"
-        height="23px"
+        width="90px"
+        height="24px"
         display="block"
         gap="unset"
         alignItems="unset"
@@ -39,7 +39,7 @@ export default function Login(props) {
         borderRadius="5px"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(245,245,245,1)"
-        {...getOverrideProps(overrides, "log in")}
+        {...getOverrideProps(overrides, "PW\u5165\u529B")}
       ></View>
     </View>
   );
